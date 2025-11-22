@@ -40,13 +40,16 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     setStatus("sending");
 
     try {
-      const response = await fetch("http://localhost:3001/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://portfolio-backend-three-sage-87.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setStatus("success");
