@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { Modal } from './components/Modal';
-import { Home } from './sections/Home';
-import { About } from './sections/About';
-import { Projects } from './sections/Projects';
-import { Skills } from './sections/Skills';
-import { useScrollReveal } from './hooks/useScrollReveal';
+import { useState } from "react";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { Modal } from "./components/Modal";
+import { Home } from "./sections/Home";
+import { About } from "./sections/About";
+import { Projects } from "./sections/Projects";
+import { Skills } from "./sections/Skills";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
