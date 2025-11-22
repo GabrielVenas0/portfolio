@@ -7,12 +7,22 @@ dotenv.config();
 
 const app: Application = express();
 const APP_FRONTEND_URL = process.env.APP_FRONTEND_URL;
+const APP_DEV_URL = process.env.APP_DEV_URL;
 const PORT = process.env.PORT || 3001;
 
+const allowedOrigins = [APP_DEV_URL, APP_FRONTEND_URL];
 // Middleware
 app.use(
   cors({
-    origin: [`${APP_FRONTEND_URL}`],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "OPTIONS"],
+    credentials: true,
   })
 );
 app.use(express.json());
