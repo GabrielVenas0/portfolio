@@ -6,10 +6,15 @@ import contactRoutes from "./routes/contact.routes";
 dotenv.config();
 
 const app: Application = express();
+const APP_FRONTEND_URL = process.env.APP_FRONTEND_URL;
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: [`${APP_FRONTEND_URL}`],
+  })
+);
 app.use(express.json());
 
 // Routes
